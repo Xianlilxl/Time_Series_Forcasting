@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"device": "cpu", "epochs": 40, "lr": 0.05, "output_size": 2}
+=======
+{"device": "cpu", "epochs": 40, "lr": 0.05, "output_size": 1}
+>>>>>>> eec8aae5e471fb9047d8f309eae7839aad478b2d

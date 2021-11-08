@@ -11,14 +11,22 @@ from importlib import import_module
 
 try:
     from utility_functions import load_data_csv
+<<<<<<< HEAD
 except:pass
+=======
+except: pass
+>>>>>>> eec8aae5e471fb9047d8f309eae7839aad478b2d
 try:
     from utilities.utility_functions import load_data_csv
 except:pass
 try:
     from sources.utilities.utility_functions import load_data_csv
 except:pass
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> eec8aae5e471fb9047d8f309eae7839aad478b2d
 ##################################################
 # This script computes all the metrics necessary for the evaluation of
 # the candidate's model performance. It can be called directly for a local evaluation
@@ -96,7 +104,11 @@ if __name__ == '__main__':
     _ , x_train, y_train = load_data_csv(data_path=train_filePath,Ndecim=dHyper['Ndecim'])
 
     ts = time.time()
+<<<<<<< HEAD
     model.fit(xs=[x_train], ys=[y_train[:,k] for k in range(5)])
+=======
+    model.fit(xs=x_train, ys=y_train)
+>>>>>>> eec8aae5e471fb9047d8f309eae7839aad478b2d
     metric_train_time = time.time() - ts
 
     # endregion fit
@@ -119,6 +131,7 @@ if __name__ == '__main__':
 
     # Normalized Error Computation : 
     y_pred = model.predict_timeseries(x_test)
+<<<<<<< HEAD
     max_ytest_value = np.zeros( (5,1) )
     for k in range(5) : # PLEASE NOTE THAT WE ONLY CONSIDER MODELS THAT COMPUTES ALL THE 5 OUTPUTS
         max_ytest_value[k] = np.max(np.abs(y_test[:,k]))
@@ -141,13 +154,35 @@ if __name__ == '__main__':
     metrics_info = { 
                      'Training set size': len(x_train), 
                      'Training time [seconds]' : metric_train_time,
+=======
+    for k in range(5) : # PLEASE NOTE THAT WE ONLY CONSIDER MODELS THAT COMPUTES ALL THE 5 OUTPUTS
+        max_ytest_value = np.max(np.abs(y_test[k]))
+        y_test[k] = np.asarray(y_test[k]) / max_ytest_value
+        y_pred[k] = np.asarray(y_pred[k]) / max_ytest_value
+
+    metric_normalized_mse = np.zeros( (5,) )
+    for k in range(5):
+        metric_normalized_mse[k] = mean_squared_error(y_true=y_test[k],y_pred=y_pred[k])
+
+    weights = np.array( [1,1,1,1,1] )
+    metric_normalized_mse_sum = np.dot(weights,metric_normalized_mse)
+
+    # End normalized error Computation
+
+
+    metrics_info = { 'Training time [seconds]' : metric_train_time,
+>>>>>>> eec8aae5e471fb9047d8f309eae7839aad478b2d
                      'Entire series inference time [seconds]' : metric_total_inference_time,
                      'Maximal inference time [seconds]' : metric_max_inference_time,
                      'Average inference time [seconds]' : metric_mean_inference_time,
                      'Normalized MSE' : metric_normalized_mse,
+<<<<<<< HEAD
                      'Normalized MSE Sum' : metric_normalized_mse_sum,
                      'Aggregated Metrics': aggregated_performance_indicator 
                    }
+=======
+                     'Normalized MSE Sum' :metric_normalized_mse_sum }
+>>>>>>> eec8aae5e471fb9047d8f309eae7839aad478b2d
 
     save_metric(metric_filename='{}_{}_metrics'.format(model.description['team_name'],model.description['model_name']),
                 location=args.out_dir,

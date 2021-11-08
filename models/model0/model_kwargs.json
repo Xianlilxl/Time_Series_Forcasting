@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"device": "cuda", "epochs": 350, "lr": 0.05, "output_size": 1}
+=======
+{"device": "cuda", "epochs": 350, "lr": 0.05, "output_size": 3}
+>>>>>>> eec8aae5e471fb9047d8f309eae7839aad478b2d

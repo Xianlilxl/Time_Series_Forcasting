@@ -40,4 +40,8 @@ def load_data_csv(data_path,name_time="Time",
     
     df = pd.read_csv(data_path,sep=',',index_col=False)
     
+<<<<<<< HEAD
     return df[name_time].to_numpy()[::Ndecim],df[name_input].to_numpy()[::Ndecim],df[names_outputs].to_numpy()[::Ndecim]
+=======
+    return df[name_time].to_numpy()[::Ndecim],df[name_input].to_numpy()[::Ndecim],[df[name].to_numpy()[::Ndecim] for name in names_outputs]
+>>>>>>> eec8aae5e471fb9047d8f309eae7839aad478b2d

@@ -30,7 +30,6 @@ except:pass
 ## Email: francois.caire at skf.com
 ##################################################
 
-
 class GRUModel(nn.Module):
     def __init__(self, input_size=1, hidden_layer_size=250, nlayers=1,
                  device='cpu', lr=0.001, seed=0, epochs=25, output_size=5):

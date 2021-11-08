@@ -9,7 +9,11 @@ import numpy as np
 # from magnetic_bearing.hackathon.example_gru_model_submission.my_model import MyModel
 try:
     from utility_functions import load_data_csv
+<<<<<<< HEAD
 except:pass
+=======
+except: pass
+>>>>>>> eec8aae5e471fb9047d8f309eae7839aad478b2d
 try:
     from utilities.utility_functions import load_data_csv
 except:pass
@@ -55,22 +59,38 @@ if __name__ == '__main__':
     parser.add_argument('--model_def_file', type=str, default='my_model1')
     parser.add_argument('--epochs', type=int, default=2)
     parser.add_argument('--lr', type=float, default=0.1)
+<<<<<<< HEAD
     parser.add_argument('--outputs_indexes',help='list of outputs indexes separated by comma (default: \"1,2,3,4,5\")', type=str, default="1,2,3,4,5")
+=======
+    parser.add_argument('--outputs_indexes',help='list of outputs indexes separated by space (default: \"1 2 3 4 5\")', type=str, default="1,2,3,4,5")
+>>>>>>> eec8aae5e471fb9047d8f309eae7839aad478b2d
     parser.add_argument('--hyper_fileName', type=str,default="hyper.json")
     
     # MANDATORY PARAMETERS FOR EVALUATION (METRICS COMPUTATION) -> DO NOT MODIFY THESE OPTIONS NAMES
     parser.add_argument('--use_gpu', type=bool, default=True)
     parser.add_argument('--train_fileName', type=str, default="input1.csv")
     parser.add_argument('--Ndecim', type=int,default=1)
+<<<<<<< HEAD
     parser.add_argument('--outputs_prefix', type=str, default='output')
+=======
+>>>>>>> eec8aae5e471fb9047d8f309eae7839aad478b2d
     
     args = parser.parse_args()
     
     save_hyper(args.model_dir,args.hyper_fileName,args)
     
+<<<<<<< HEAD
     names_outputs = [args.outputs_prefix + k for k in args.outputs_indexes.split(",")]
     
     # Get Model Definition 
+=======
+    names_outputs = ["output" + k for k in args.outputs_indexes.split(",")]
+    
+    # Get Model Definition
+    try:
+         MyModel = import_module(args.model_def_file).MyModel
+    except: pass
+>>>>>>> eec8aae5e471fb9047d8f309eae7839aad478b2d
     try:
         MyModel = import_module('utilities.' + args.model_def_file).MyModel
     except:
@@ -90,7 +110,11 @@ if __name__ == '__main__':
                                Ndecim = args.Ndecim)
     
     # Train
+<<<<<<< HEAD
     model.fit(xs=[xs], ys=[ys[:,k] for k in range(len(names_outputs))])
+=======
+    model.fit(xs=xs, ys=ys)
+>>>>>>> eec8aae5e471fb9047d8f309eae7839aad478b2d
     
     # Save Trained Model
     model.save(args.model_dir)

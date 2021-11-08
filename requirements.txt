@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 numpy==1.19.5
 torch==1.9.1
 pandas==1.1.1
 boto3==1.17.11
 sagemaker==2.59.7
+=======
+pandas==1.1.1
+torch==1.9.1
+boto3==1.17.11
+sagemaker==2.59.7
+numpy==1.19.5
+>>>>>>> eec8aae5e471fb9047d8f309eae7839aad478b2d
 scikit_learn==1.0
