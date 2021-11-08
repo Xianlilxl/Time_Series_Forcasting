@@ -1,0 +1,17 @@
+affiliation : ESIEE Paris
+description : LSTM
+email : xianli.li@edu.esiee.fr
+model_name : Keras_model
+model_title : Keras Model LSTM
+other_remarks : 
+team_name : Guan_Li_DSIA_5012B
+technology_stack : Keras
+Aggregated Metrics : 0.9374238807065084
+Average inference time [seconds] : 0.029333552463701597
+Entire series inference time [seconds] : 146.69709587097168
+Maximal inference time [seconds] : 0.7626471519470215
+Normalized MSE : [1.37769498e-01 1.63672812e-04 3.29847534e-04 2.10180476e-05
+ 3.00382502e-04]
+Normalized MSE Sum : 0.13858441894106235
+Training set size : 6844
+Training time [seconds] : 53.126477003097534
